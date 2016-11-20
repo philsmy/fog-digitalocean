@@ -6,7 +6,7 @@ module Fog
           request(
             :expects => [200],
             :method  => 'GET',
-            :path    => "/v2/images",
+            :path => "/v2/images?page=1&per_page=999#{filters.to_a.map { |x| "#{x[0]}=#{x[1]}" }.join("&")}",
             :query   => filters
           )
         end
