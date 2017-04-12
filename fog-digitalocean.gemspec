@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.require_paths = %w[lib]
 
   ## If your gem includes any executables, list them here.
-  s.executables = ["fog"]
+  #s.executables = ["fog"]
 
   ## Specify any RDoc options here. You'll want to add your README and
   ## LICENSE files to the extra_rdoc_files list.
@@ -55,6 +55,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'fog-json',  '>= 1.0'
   s.add_dependency 'fog-xml',   '>= 0.1'
   s.add_dependency 'ipaddress', '>= 0.5'
+  s.add_dependency 'activesupport', '~> 4.2'
+  s.add_dependency 'zonefile', '>= 1.04'
 
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- {spec,tests}/*`.split("\n")

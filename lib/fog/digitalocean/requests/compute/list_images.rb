@@ -15,6 +15,8 @@ module Fog
       # noinspection RubyStringKeysInHashInspection
       class Mock
         def list_images(filters = {})
+          next_page = (filters[:page] || 1).to_i + 1
+
           response        = Excon::Response.new
           response.status = 200
           response.body   = {
@@ -24,7 +26,7 @@ module Fog
                 'id'            => 7555620,
                 'name'          => 'Nifty New Snapshot',
                 'distribution'  => 'Ubuntu',
-                'slug'          => nil,
+                'slug'          => 'nifty-new-snapshot-ubuntu',
                 'public'        => false,
                 'regions'       => %w(nyc2 nyc3),
                 'created_at'    => '2014-11-04T22:23:02Z',
@@ -35,7 +37,7 @@ module Fog
             'links'  => {
               'pages' => {
                 'last' => 'https://api.digitalocean.com/v2/images?page=56&per_page=1',
-                'next' => 'https://api.digitalocean.com/v2/images?page=2&per_page=1'
+                'next' => "https://api.digitalocean.com/v2/images?page=#{next_page}&per_page=1"
               }
             },
             'meta'   => {
