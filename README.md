@@ -94,6 +94,7 @@ docean.servers.each do |server|
   puts (server.image['slug'] || server.image['name']) # slug is only for public images, private images use name
   puts server.size['slug']
   puts server.region['slug']
+  puts ""
 end
 ```
 
@@ -127,3 +128,20 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+
+
+
+curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer xxx" "https://api.digitalocean.com/v2/images?page=999&per_page=1" 
+
+
+curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer xxx" "https://api.digitalocean.com/v2/images?page=1&per_page=1&type=distribution" 
+
+
+curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer xxx" "https://api.digitalocean.com/v2/images/s-16vcpu-64gb" 
+
+curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer xxx" "https://api.digitalocean.com/v2/images?page=1&per_page=999&type=distribution" 
+
+curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer xxx" "https://api.digitalocean.com/v2/images?page=1&per_page=999" 
+
+curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer xxx" "https://api.digitalocean.com/v2/sizes?page=1&per_page=999"

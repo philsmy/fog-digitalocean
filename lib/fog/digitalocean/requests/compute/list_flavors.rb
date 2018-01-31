@@ -6,7 +6,7 @@ module Fog
           request(
             :expects => [200],
             :method  => 'GET',
-            :path    => "/v2/sizes",
+            :path    => "/v2/sizes?page=1&per_page=200",
             :query   => filters
           )
         end
